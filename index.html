@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsThatBrother- Lista e Cmimeve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>WhatsThatBrother - Lista e Cmimeve</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -18,7 +18,7 @@
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1rem;
             position: relative;
         }
 
@@ -82,7 +82,7 @@
         /* Header Section */
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             animation: fadeInDown 1s ease;
         }
 
@@ -98,47 +98,55 @@
         }
 
         .header h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 10px 30px rgba(0,0,0,0.3);
             letter-spacing: -1px;
         }
 
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 4rem;
+            }
+        }
+
         .header p {
             color: rgba(255,255,255,0.9);
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 300;
             letter-spacing: 1px;
         }
 
-        /* Stats Bar */
+        /* Stats Bar - Mobile First */
         .stats-bar {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2.5rem;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
         .stat-item {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            padding: 0.6rem 1rem;
             border-radius: 50px;
             border: 1px solid rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             color: white;
             animation: fadeInUp 1s ease 0.3s both;
+            flex: 1 1 auto;
+            min-width: 100px;
         }
 
         .stat-item i {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #ffd700;
         }
 
@@ -148,71 +156,61 @@
         }
 
         .stat-number {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             line-height: 1.2;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             opacity: 0.8;
         }
 
-        /* Search and Filter */
+        @media (min-width: 768px) {
+            .stats-bar {
+                gap: 3rem;
+            }
+            .stat-item {
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+            .stat-item i {
+                font-size: 1.5rem;
+            }
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            .stat-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Search and Filter - Mobile First */
         .controls {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease 0.4s both;
         }
 
         .search-box {
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
             position: relative;
         }
 
         .search-box i {
             position: absolute;
-            left: 1.2rem;
+            left: 1rem;
             top: 50%;
             transform: translateY(-50%);
             color: rgba(255,255,255,0.6);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .search-box input {
             width: 100%;
-            padding: 1.2rem 1.2rem 1.2rem 3.5rem;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.4);
-        }
-
-        .search-box input::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 1.2rem 2rem;
+            padding: 1rem 1rem 1rem 3rem;
             border: none;
             border-radius: 50px;
             background: rgba(255,255,255,0.1);
@@ -220,180 +218,160 @@
             border: 1px solid rgba(255,255,255,0.2);
             color: white;
             font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
+            flex: 1 1 auto;
+            justify-content: center;
         }
 
-        .filter-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.4);
-            transform: translateY(-2px);
+        .filter-btn i {
+            font-size: 0.9rem;
         }
 
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        @media (min-width: 768px) {
+            .controls {
+                flex-direction: row;
+            }
+            .filter-btn {
+                padding: 1.2rem 2rem;
+                font-size: 0.95rem;
+                flex: 0 1 auto;
+            }
         }
 
-        /* Table Container */
+        /* Table Container - Mobile Optimized */
         .table-wrapper {
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
-            border-radius: 30px;
+            border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: visible;
             animation: fadeInUp 1s ease 0.6s both;
             border: 1px solid rgba(255,255,255,0.3);
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 1rem;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1400px;
+            min-width: 800px; /* Reduced from 1400px for better mobile */
+        }
+
+        @media (max-width: 768px) {
+            table {
+                min-width: 700px; /* Even smaller for very small devices */
+            }
         }
 
         th {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: white;
             font-weight: 600;
-            padding: 1.2rem 1.5rem;
+            padding: 0.8rem;
             text-align: left;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             border-bottom: 2px solid rgba(255,255,255,0.1);
             white-space: nowrap;
         }
 
         th i {
-            margin-right: 8px;
-            opacity: 0.9;
+            margin-right: 4px;
+            font-size: 0.8rem;
         }
 
         td {
-            padding: 1.2rem 1.5rem;
+            padding: 0.8rem;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             color: #2c3e50;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             transition: all 0.3s;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr {
-            transition: all 0.3s;
-            cursor: default;
-        }
-
-        tbody tr:hover {
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            transform: scale(1.01);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Category styling */
+        /* Category styling - Mobile */
         td:first-child {
             font-weight: 700;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-right: 2px solid rgba(255,255,255,0.2);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            font-size: 0.75rem;
+            white-space: nowrap;
         }
 
-        /* Price styling */
+        /* Price styling - Mobile */
         td:nth-child(3) {
             font-weight: 700;
             color: #27ae60;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             background: rgba(39, 174, 96, 0.1);
-            border-radius: 20px;
             white-space: nowrap;
         }
 
-        /* Warranty styling */
-        td:nth-child(4) {
-            white-space: nowrap;
-        }
-
-        /* Buy Button styling */
+        /* Buy Button styling - Mobile */
         .buy-btn {
             background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
             color: white;
             border: none;
-            padding: 0.6rem 1.2rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
             white-space: nowrap;
             box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
         }
 
         .buy-btn i {
-            font-size: 1.1rem;
+            font-size: 0.8rem;
         }
 
-        .buy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
-            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        /* Badges - Mobile */
+        .hot-badge, .lifetime-badge {
+            padding: 0.2rem 0.5rem;
+            font-size: 0.65rem;
+            white-space: nowrap;
         }
 
-        .buy-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Badge for Hot Selling */
-        .hot-badge {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Lifetime badge */
-        .lifetime-badge {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            color: #2c3e50;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        /* Category icon */
+        /* Category icon - Mobile */
         .category-icon {
-            width: 30px;
-            height: 30px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-size: 1rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            margin-right: 5px;
+            font-size: 0.8rem;
         }
 
-        /* Modal Styles */
+        /* Modal Styles - Mobile First */
         .modal {
             display: none;
             position: fixed;
@@ -401,94 +379,65 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(5px);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            padding: 0.5rem;
         }
 
         .modal-content {
             background: white;
-            border-radius: 30px;
+            border-radius: 20px;
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             animation: slideUp 0.3s ease;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .modal-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 30px 30px 0 0;
+            padding: 1.2rem;
+            border-radius: 20px 20px 0 0;
             text-align: center;
         }
 
         .modal-header h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
         }
 
         .modal-header p {
+            font-size: 0.85rem;
             opacity: 0.9;
-            font-size: 1rem;
         }
 
         .modal-body {
-            padding: 2rem;
+            padding: 1.2rem;
         }
 
         .payment-details {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1rem;
         }
 
         .payment-details h3 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .payment-details h3 i {
-            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
         .info-row {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.3rem;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
@@ -499,38 +448,41 @@
         .info-label {
             color: #7f8c8d;
             font-weight: 500;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         .info-value {
             font-weight: 700;
             color: #2c3e50;
             font-size: 1rem;
+            width: 100%;
+            word-break: break-word;
         }
 
         .bank-details {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 1rem;
             margin: 1rem 0;
-            border: 2px dashed #667eea;
         }
 
         .bank-name {
             background: #667eea;
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 30px;
             display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .account-number {
             font-family: 'Courier New', monospace;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #2c3e50;
             background: #f8f9fa;
@@ -539,163 +491,139 @@
             text-align: center;
             letter-spacing: 2px;
             border: 1px solid #e9ecef;
+            word-break: break-word;
         }
 
         .contact-info {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
             border-radius: 15px;
-            padding: 1.2rem;
+            padding: 1rem;
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         .contact-info a {
             color: white;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 0.5rem 1.5rem;
+            gap: 8px;
+            padding: 0.4rem 1rem;
             background: rgba(255,255,255,0.2);
             border-radius: 50px;
-            margin-top: 10px;
-            transition: all 0.3s;
-        }
-
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+            margin-top: 8px;
         }
 
         .payment-reasons {
-            margin: 1.5rem 0;
+            margin: 1rem 0;
+        }
+
+        .payment-reasons h4 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .reason-badge {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 30px;
-            margin: 0.3rem;
-            font-size: 0.9rem;
+            margin: 0.2rem;
+            font-size: 0.8rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .reason-badge:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .reason-badge.selected {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            transform: scale(1.05);
-        }
-
-        .reason-badge i {
-            margin-right: 5px;
-        }
-
-        .product-info {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 1rem 0 1.5rem 0;
-            border-left: 4px solid #667eea;
-        }
-
-        .product-info p {
-            margin: 0.5rem 0;
-            font-size: 1rem;
         }
 
         .note-box {
             background: #fff3cd;
-            border-radius: 15px;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #ffc107;
-        }
-
-        .note-box i {
-            color: #856404;
-            margin-right: 8px;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
         }
 
         .note-box p {
-            color: #856404;
-            margin-top: 8px;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .close-btn {
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             color: white;
             border: none;
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
-            margin-top: 1rem;
-            transition: all 0.3s;
         }
 
-        .close-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+        /* Scroll Hint for Mobile */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            color: white;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-hint i {
+            margin: 0 5px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 768px) {
+            .scroll-hint {
+                display: block;
+            }
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-            animation: fadeInUp 1s ease 0.8s both;
+            font-size: 0.8rem;
         }
 
-        .footer i {
-            color: #ff6b6b;
-            animation: heartbeat 1.5s ease infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Desktop Improvements */
+        @media (min-width: 769px) {
             body {
-                padding: 1rem;
+                padding: 2rem;
             }
-
-            .header h1 {
-                font-size: 2.5rem;
+            
+            th {
+                padding: 1.2rem 1.5rem;
+                font-size: 0.95rem;
             }
-
+            
+            td {
+                padding: 1.2rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
             .buy-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
-
-            .modal-content {
-                width: 95%;
+            
+            .info-row {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
-
-            .modal-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .account-number {
-                font-size: 1rem;
+            
+            .info-value {
+                width: auto;
             }
         }
     </style>
@@ -710,15 +638,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2><i class="fas fa-info-circle"></i> Si të bësh pagesën</h2>
-                <p>Ndiq hapat e mëposhtëm për të përfunduar porosinë</p>
+                <p>Ndiq hapat e mëposhtëm</p>
             </div>
             <div class="modal-body">
-                <div id="selectedProduct" class="product-info">
+                <div id="selectedProduct" class="product-info" style="background: #f8f9fa; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #667eea;">
                     <!-- Will be filled by JavaScript -->
                 </div>
 
                 <div class="payment-details">
-                    <h3><i class="fas fa-university"></i> Pagesa behet me transfer online</h3>
+                    <h3><i class="fas fa-university"></i> Detajet e pagesës online</h3>
                     
                     <div class="info-row">
                         <span class="info-label"><i class="fas fa-user-circle"></i> Emri i përfituesit:</span>
@@ -726,7 +654,7 @@
                     </div>
 
                     <div class="info-row">
-                        <span class="info-label"><i class="fas fa-map-marker-alt"></i> Adresa e përfituesit:</span>
+                        <span class="info-label"><i class="fas fa-map-marker-alt"></i> Adresa:</span>
                         <span class="info-value"><strong>Kontakto ne numer</strong></span>
                     </div>
 
@@ -745,14 +673,14 @@
                         <a href="https://wa.me/38349188145" target="_blank">
                             <i class="fab fa-whatsapp"></i> +383 49 188 145
                         </a>
-                        <div style="margin-top: 10px; font-size: 0.9rem;">
+                        <div style="margin-top: 8px; font-size: 0.8rem;">
                             <i class="fab fa-viber"></i> Viber: i njëjti numër
                         </div>
                     </div>
                 </div>
 
                 <div class="payment-reasons">
-                    <h4><i class="fas fa-tag"></i> Përshkrimi i pagesës (zgjidh një):</h4>
+                    <h4><i class="fas fa-tag"></i> Përshkrimi:</h4>
                     <span class="reason-badge" onclick="setPaymentReason('Dhurate', this)">
                         <i class="fas fa-gift"></i> Dhuratë
                     </span>
@@ -766,12 +694,12 @@
 
                 <div class="note-box">
                     <i class="fas fa-info-circle"></i>
-                    <strong>Shënim i rëndësishëm:</strong>
-                    <p>Pasi të keni bërë pagesën, ju lutem na dërgoni dëshminë (screenshot) në Viber ose WhatsApp për konfirmim dhe dërgesë të licencës.</p>
+                    <strong>Shënim:</strong>
+                    <p>Pasi të keni bërë pagesën, na dërgoni dëshminë në Viber ose WhatsApp.</p>
                 </div>
 
                 <button class="close-btn" onclick="closeModal()">
-                    <i class="fas fa-check-circle"></i> Kuptova, do të bëj pagesën
+                    <i class="fas fa-check-circle"></i> Kuptova
                 </button>
             </div>
         </div>
@@ -780,8 +708,8 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>✨ WhatsThatBrother - Licenses ✨</h1>
-            <p><i class="fas fa-bolt"></i> Licenca origjinale me çmimet më të mira <i class="fas fa-bolt"></i></p>
+            <h1>✨ WhatsThatBrother ✨</h1>
+            <p><i class="fas fa-bolt"></i> Licenca origjinale <i class="fas fa-bolt"></i></p>
         </div>
 
         <!-- Stats Bar -->
@@ -813,7 +741,7 @@
         <div class="controls">
             <div class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Kërko produkt... (Windows, Office, Adobe, etj.)" id="searchInput">
+                <input type="text" placeholder="Kërko produkt..." id="searchInput">
             </div>
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="filterCategory('all')">
@@ -828,10 +756,12 @@
                 <button class="filter-btn" onclick="filterCategory('Adobe')">
                     <i class="fab fa-adobe"></i> Adobe
                 </button>
-                <button class="filter-btn" onclick="filterCategory('Antivirus')">
-                    <i class="fas fa-shield-virus"></i> Antivirus
-                </button>
             </div>
+        </div>
+
+        <!-- Scroll Hint for Mobile -->
+        <div class="scroll-hint">
+            <i class="fas fa-arrow-left"></i> Rrëshqit majtas për më shumë <i class="fas fa-arrow-right"></i>
         </div>
 
         <!-- Table Container -->
@@ -848,178 +778,178 @@
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <!-- Windows Key Category -->
-                    <tr class="category-row" data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                    <!-- Windows Products -->
+                    <tr data-category="Windows">
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Pro Retail Key 1 PC</td>
                         <td>8.00 €</td>
                         <td>7 ditë</td>
-                        <td><span class="hot-badge"><i class="fas fa-fire"></i> Hot Selling</span></td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro Retail Key 1 PC', 8.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><span class="hot-badge">🔥 Hot</span></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro Retail Key 1 PC', 8.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Pro OEM Key 1 PC</td>
                         <td>10.00 €</td>
                         <td>365 ditë</td>
-                        <td><span class="hot-badge"><i class="fas fa-fire"></i> Hot Selling</span></td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro OEM Key 1 PC', 10.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><span class="hot-badge">🔥 Hot</span></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro OEM Key 1 PC', 10.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Pro Retail Key 5 PC</td>
                         <td>38.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro Retail Key 5 PC', 38.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro Retail Key 5 PC', 38.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Pro MAK Key 20 PC</td>
                         <td>41.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro MAK Key 20 PC', 41.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Pro MAK Key 20 PC', 41.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows Home Upgrade Pro Retail Key 1 PC</td>
                         <td>15.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows Home Upgrade Pro Retail Key 1 PC', 15.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows Home Upgrade Pro Retail Key 1 PC', 15.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Home OEM Key 1 PC</td>
                         <td>16.50 €</td>
                         <td>365 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Home OEM Key 1 PC', 16.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Home OEM Key 1 PC', 16.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 11/10 Home Retail Key 5 PC</td>
                         <td>34.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Home Retail Key 5 PC', 34.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 11/10 Home Retail Key 5 PC', 34.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 8.1 Pro Retail Key 1 PC</td>
                         <td>15.00 €</td>
                         <td>30 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 8.1 Pro Retail Key 1 PC', 15.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 8.1 Pro Retail Key 1 PC', 15.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 8.1 Pro Retail Key 5 PC</td>
                         <td>36.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 8.1 Pro Retail Key 5 PC', 36.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 8.1 Pro Retail Key 5 PC', 36.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 7 Pro OEM Key 1 PC</td>
                         <td>14.00 €</td>
                         <td>30 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Pro OEM Key 1 PC', 14.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Pro OEM Key 1 PC', 14.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 7 Home Premium OEM Key 1 PC</td>
                         <td>15.50 €</td>
                         <td>30 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Home Premium OEM Key 1 PC', 15.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Home Premium OEM Key 1 PC', 15.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 7 Pro/Home Retail Key 5 PC</td>
                         <td>25.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Pro/Home Retail Key 5 PC', 25.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 7 Pro/Home Retail Key 5 PC', 25.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 10/11 Enterprise MAK Key 20 PC</td>
                         <td>40.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 10/11 Enterprise MAK Key 20 PC', 40.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 10/11 Enterprise MAK Key 20 PC', 40.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows Key</td>
+                        <td><span class="category-icon"><i class="fab fa-windows"></i></span> Windows</td>
                         <td>Windows 10/11 Enterprise MAK Key 50 PC</td>
                         <td>54.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 10/11 Enterprise MAK Key 50 PC', 54.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Windows 10/11 Enterprise MAK Key 50 PC', 54.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
-                    <!-- Office 365 Category -->
+                    <!-- Office 365 Products -->
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 A1 Plus 5 PC/Mac 100GB Lifetime Account+Password</td>
+                        <td>Office 365 A1 Plus 5 PC/Mac 100GB Lifetime</td>
                         <td>14.00 €</td>
                         <td>180 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 A1 Plus 5 PC/Mac 100GB', 14.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 A1 Plus 5 PC/Mac 100GB', 14.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 A1 Plus 5 PC/Mac 100GB Lifetime Account+Password Customize Name</td>
+                        <td>Office 365 A1 Plus Customize Name</td>
                         <td>21.50 €</td>
                         <td>180 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 A1 Plus Customize Name', 21.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 A1 Plus Customize Name', 21.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 Personal 5 PC/Mac 1TB OneDrive 1 Year</td>
+                        <td>Office 365 Personal 1 Year</td>
                         <td>97.50 €</td>
                         <td>365 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Personal 1 Year', 97.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Personal 1 Year', 97.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 Family 5 PC/Mac 6TB OneDrive 1 Year</td>
+                        <td>Office 365 Family 1 Year</td>
                         <td>102.00 €</td>
                         <td>365 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family 1 Year', 102.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family 1 Year', 102.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 Family 5 PC/Mac 1TB OneDrive 1 Year Invitation</td>
+                        <td>Office 365 Family Invitation 1 Year</td>
                         <td>29.50 €</td>
                         <td>365 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family Invitation 1 Year', 29.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family Invitation 1 Year', 29.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 365</td>
-                        <td>Office 365 Family 5 PC/Mac 1TB OneDrive 2 Year Invitation</td>
+                        <td>Office 365 Family Invitation 2 Year</td>
                         <td>54.50 €</td>
                         <td>730 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family Invitation 2 Year', 54.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 365 Family Invitation 2 Year', 54.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
-                    <!-- Office 2021 Category -->
+                    <!-- Office 2021 -->
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 2021</td>
                         <td>Office 2021 Professional Plus Key 1 PC</td>
                         <td>27.00 €</td>
                         <td>3 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Key 1 PC', 27.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Key 1 PC', 27.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 2021</td>
@@ -1027,177 +957,115 @@
                         <td>60.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Key 5 PC', 60.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Key 5 PC', 60.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 2021</td>
-                        <td>Office 2021 Professional Plus Bind Key 1 PC</td>
+                        <td>Office 2021 Professional Plus Bind Key</td>
                         <td>120.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Bind Key', 120.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2021 Professional Plus Bind Key', 120.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
-                    <!-- Office 2019 Category -->
+                    <!-- Office 2019 -->
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 2019</td>
                         <td>Office 2019 Professional Plus Key 5 PC</td>
                         <td>37.50 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2019 Professional Plus Key 5 PC', 37.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2019 Professional Plus Key 5 PC', 37.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Office">
                         <td><span class="category-icon"><i class="fab fa-microsoft"></i></span> Office 2019</td>
-                        <td>Office 2019 Professional Plus Bind Key 1 PC</td>
+                        <td>Office 2019 Professional Plus Bind Key</td>
                         <td>57.00 €</td>
                         <td>7 ditë</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2019 Professional Plus Bind Key', 57.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Office 2019 Professional Plus Bind Key', 57.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
-                    <!-- Adobe Category -->
+                    <!-- Adobe Products -->
                     <tr data-category="Adobe">
                         <td><span class="category-icon"><i class="fab fa-adobe"></i></span> Adobe</td>
-                        <td>Adobe Creative Cloud All Apps 1 Month</td>
+                        <td>Adobe Creative Cloud 1 Month</td>
                         <td>54.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe Creative Cloud 1 Month', 54.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe Creative Cloud 1 Month', 54.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Adobe">
                         <td><span class="category-icon"><i class="fab fa-adobe"></i></span> Adobe</td>
-                        <td>Adobe Creative Cloud All Apps 1 Year</td>
+                        <td>Adobe Creative Cloud 1 Year</td>
                         <td>180.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe Creative Cloud 1 Year', 180.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe Creative Cloud 1 Year', 180.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Adobe">
                         <td><span class="category-icon"><i class="fab fa-adobe"></i></span> Adobe</td>
-                        <td>Adobe 1 App 1 Year (Photoshop/Premiere)</td>
+                        <td>Adobe 1 App 1 Year</td>
                         <td>127.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe 1 App 1 Year', 127.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-
-                    <!-- Antivirus Category -->
-                    <tr data-category="Antivirus">
-                        <td><span class="category-icon"><i class="fas fa-shield-virus"></i></span> Norton</td>
-                        <td>Norton 360 Premium Key 1 Device 1 Year</td>
-                        <td>24.50 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Norton 360 Premium 1 Device', 24.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-                    <tr data-category="Antivirus">
-                        <td><span class="category-icon"><i class="fas fa-shield-virus"></i></span> Norton</td>
-                        <td>Norton 360 Premium 10 Devices 1 Year</td>
-                        <td>57.50 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Norton 360 Premium 10 Devices', 57.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-                    <tr data-category="Antivirus">
-                        <td><span class="category-icon"><i class="fas fa-shield-virus"></i></span> ESET</td>
-                        <td>ESET Internet Security 1 Device 1 Year</td>
-                        <td>24.50 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('ESET Internet Security 1 Device', 24.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-                    <tr data-category="Antivirus">
-                        <td><span class="category-icon"><i class="fas fa-shield-virus"></i></span> ESET</td>
-                        <td>ESET Internet Security 3 Device 1 Year</td>
-                        <td>42.50 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('ESET Internet Security 3 Device', 42.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Adobe 1 App 1 Year', 127.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
                     <!-- Netflix -->
                     <tr data-category="Streaming">
                         <td><span class="category-icon"><i class="fab fa-netflix"></i></span> Netflix</td>
-                        <td>Netflix Premium 1 Profile 1 Month</td>
+                        <td>Netflix Premium 1 Month</td>
                         <td>17.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Netflix Premium 1 Month', 17.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Netflix Premium 1 Month', 17.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Streaming">
                         <td><span class="category-icon"><i class="fab fa-netflix"></i></span> Netflix</td>
-                        <td>Netflix Premium 1 Profile 12 Months</td>
+                        <td>Netflix Premium 12 Months</td>
                         <td>42.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Netflix Premium 12 Months', 42.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Netflix Premium 12 Months', 42.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
                     <!-- Spotify -->
                     <tr data-category="Streaming">
                         <td><span class="category-icon"><i class="fab fa-spotify"></i></span> Spotify</td>
-                        <td>Spotify Premium 12 Months New Account</td>
+                        <td>Spotify Premium 12 Months</td>
                         <td>40.00 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Spotify Premium 12 Months', 40.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Spotify Premium 12 Months', 40.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
                     <!-- Canva -->
                     <tr data-category="Design">
                         <td><span class="category-icon"><i class="fas fa-paint-brush"></i></span> Canva</td>
-                        <td>Canva Pro Private Account 1 Year</td>
+                        <td>Canva Pro 1 Year</td>
                         <td>37.50 €</td>
                         <td>Subscription</td>
                         <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Canva Pro 1 Year', 37.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Canva Pro 1 Year', 37.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                     <tr data-category="Design">
                         <td><span class="category-icon"><i class="fas fa-paint-brush"></i></span> Canva</td>
-                        <td>Canva Edu Private Account Lifetime</td>
+                        <td>Canva Edu Lifetime</td>
                         <td>14.50 €</td>
                         <td>365 ditë</td>
-                        <td><span class="lifetime-badge"><i class="fas fa-infinity"></i> Lifetime</span></td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Canva Edu Lifetime', 14.50)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><span class="lifetime-badge">∞ Lifetime</span></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Canva Edu Lifetime', 14.50)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
 
                     <!-- Visual Studio -->
                     <tr data-category="Development">
                         <td><span class="category-icon"><i class="fas fa-code"></i></span> Visual Studio</td>
-                        <td>Visual Studio Professional Key 1 PC</td>
+                        <td>Visual Studio Professional</td>
                         <td>16.00 €</td>
                         <td>Lifetime</td>
-                        <td><span class="lifetime-badge"><i class="fas fa-infinity"></i> Lifetime</span></td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Visual Studio Professional', 16.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-
-                    <!-- Windows Server -->
-                    <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fas fa-server"></i></span> Windows Server</td>
-                        <td>Server 2022 Standard/Datacenter Key 2 PC</td>
-                        <td>25.00 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Server 2022 Standard Key 2 PC', 25.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-                    <tr data-category="Windows">
-                        <td><span class="category-icon"><i class="fas fa-server"></i></span> Windows Server</td>
-                        <td>SQL Server 2022 Standard Key 1 PC</td>
-                        <td>42.00 €</td>
-                        <td>7 ditë</td>
-                        <td>—</td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('SQL Server 2022 Standard', 42.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
-                    </tr>
-
-                    <!-- Parallels Desktop -->
-                    <tr data-category="Mac">
-                        <td><span class="category-icon"><i class="fab fa-apple"></i></span> Parallels</td>
-                        <td>Parallels Desktop 19 for Mac Standard Edition</td>
-                        <td>47.00 €</td>
-                        <td>Lifetime</td>
-                        <td><span class="lifetime-badge"><i class="fas fa-infinity"></i> Lifetime</span></td>
-                        <td><button class="buy-btn" onclick="openPaymentModal('Parallels Desktop 19 Standard', 47.00)"><i class="fas fa-shopping-cart"></i> Bli tani</button></td>
+                        <td><span class="lifetime-badge">∞ Lifetime</span></td>
+                        <td><button class="buy-btn" onclick="openPaymentModal('Visual Studio Professional', 16.00)"><i class="fas fa-shopping-cart"></i> Bli</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -1205,7 +1073,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><i class="fas fa-copyright"></i> 2026 WhatsThatBrother. Dërgojmë licencat permes numrit ose email pas konfirmimit të pagesës. <i class="fas fa-heart"></i></p>
+            <p><i class="fas fa-copyright"></i> 2026 WhatsThatBrother. Dërgojmë licencat pas konfirmimit.</p>
         </div>
     </div>
 
@@ -1213,9 +1081,7 @@
     <script>
         let currentProduct = '';
         let currentPrice = 0;
-        let selectedReason = '';
 
-        // Open payment modal
         function openPaymentModal(product, price) {
             currentProduct = product;
             currentPrice = price;
@@ -1224,46 +1090,28 @@
             const productInfo = document.getElementById('selectedProduct');
             
             productInfo.innerHTML = `
-                <p><strong><i class="fas fa-box"></i> Produkti i zgjedhur:</strong> ${product}</p>
+                <p><strong><i class="fas fa-box"></i> Produkti:</strong> ${product}</p>
                 <p><strong><i class="fas fa-euro-sign"></i> Çmimi:</strong> ${price.toFixed(2)} €</p>
             `;
             
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            
-            // Reset selected reason
-            selectedReason = '';
-            const badges = document.querySelectorAll('.reason-badge');
-            badges.forEach(badge => {
-                badge.classList.remove('selected');
-                badge.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            });
         }
 
-        // Close modal
         function closeModal() {
             const modal = document.getElementById('paymentModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Set payment reason
         function setPaymentReason(reason, element) {
-            selectedReason = reason;
-            
-            // Remove selected class from all badges
             const badges = document.querySelectorAll('.reason-badge');
             badges.forEach(badge => {
-                badge.classList.remove('selected');
                 badge.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
             });
-            
-            // Add selected class to clicked badge
-            element.classList.add('selected');
             element.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
         }
 
-        // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('paymentModal');
             if (event.target == modal) {
@@ -1271,88 +1119,36 @@
             }
         }
 
-        // Search functionality
         document.getElementById('searchInput').addEventListener('keyup', function() {
             let searchText = this.value.toLowerCase();
             let tableRows = document.querySelectorAll('#tableBody tr');
             
             tableRows.forEach(row => {
                 let productText = row.cells[1].textContent.toLowerCase();
-                if (productText.includes(searchText) || searchText === '') {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
+                row.style.display = productText.includes(searchText) || searchText === '' ? '' : 'none';
             });
         });
 
-        // Filter by category
         function filterCategory(category) {
             let tableRows = document.querySelectorAll('#tableBody tr');
             let buttons = document.querySelectorAll('.filter-btn');
             
-            // Update active button
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.includes(category === 'all' ? 'Të gjitha' : category)) {
-                    btn.classList.add('active');
-                }
-            });
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
             
-            // Filter rows
             tableRows.forEach(row => {
                 if (category === 'all') {
                     row.style.display = '';
                 } else {
                     let rowCategory = row.getAttribute('data-category');
-                    if (rowCategory && rowCategory.includes(category)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
+                    row.style.display = rowCategory === category ? '' : 'none';
                 }
             });
         }
 
-        // Initial animation for rows
-        document.querySelectorAll('#tableBody tr').forEach((row, index) => {
-            row.style.animation = `fadeInUp 0.5s ease ${index * 0.02}s both`;
-        });
-
-        // ESC key to close modal
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
+            if (event.key === 'Escape') closeModal();
         });
     </script>
-
-    <style>
-        /* Additional animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #tableBody tr {
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-        }
-
-        .category-icon {
-            transition: all 0.3s;
-        }
-
-        tr:hover .category-icon {
-            transform: scale(1.1);
-            background: rgba(255,255,255,0.3);
-        }
-    </style>
 </body>
 </html>
